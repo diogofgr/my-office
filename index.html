@@ -11,17 +11,18 @@
         <img id="wall" src="wall.png">
         <img id="door" src="wood-01.png">
         <img id="wooden-box" src="wood-02.jpg">
+        <img id="sky" src="sunset-sky.jpg">
       </a-assets>
 
       <!-- camera in perspective: -->
       <!-- <a-entity id='cameraWrapper' position="5 3 3" rotation="-45 45 0"> -->
-      <a-entity id='cameraWrapper' position="0 0 0" rotation="0 180 0">
+      <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
       <!-- camera center: -->
         <a-camera></a-camera>
       </a-entity>
 
       <!-- film noir intensity is 0.2 -->
-      <a-entity id="room-light" light="type: point; intensity: 0.2; distance: 50; decay: 2" position="0 2 0"></a-entity>
+      <a-entity id="room-light" light="type: point; intensity: 0.3; distance: 50; decay: 2" position="0 2 0"></a-entity>
 
       <a-plane src="#ground" position="0 0 0" rotation="-90 0 0" width="4" height="8" color="#7BC8A4" material="roughness: 1; metalness: 0"></a-plane>
 
@@ -49,6 +50,11 @@
             <a-entity geometry="primitive: box; width: 0.8; height: 0.05; depth: 0.3" material="color: white; roughness: 1; metalness: 0" position="1.3 0.4 -0.16" rotation="0 0 90"></a-entity>
             <!-- top -->
             <a-entity geometry="primitive: box; width: 2.6; height: 0.05; depth: 0.3" material="color: white; roughness: 1; metalness: 0" position="0 0.75 -0.16" rotation="0 0 0"></a-entity>
+            <!-- glass -->
+            <a-entity geometry="primitive: box; width: 4; height: 0.9; depth: 0.01" material="color: white; roughness: 0; metalness: 0; transparent: true; opacity: 0.4" position="0 0.3 -0.1"></a-entity>
+
+            <!-- sidewalk -->
+         <!--    <a-entity geometry="primitive: box; width: 4; height: 0.4; depth: 0.1" material="color: white; roughness: 1; metalness: 0" position="0 0.2 -0.8"></a-entity> -->
           </a-entity>
         </a-entity>
 
@@ -89,7 +95,7 @@
       <a-box color="red" position="1.7 0 -5"></a-box>
 
       <!-- Bonus Step : Can you see that cube? If not take a minute to wonder why -->
-      <a-sky color="lightblue"></a-sky>
+      <a-sky src="#sky" phi-start="150"></a-sky>
     </a-scene>
   </body>
 </html>
