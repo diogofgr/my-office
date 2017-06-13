@@ -9,26 +9,33 @@
       <a-assets>
         <img id="ground" src="ground.jpg">
         <img id="wall" src="wall.png">
+        <img id="door" src="wood-01.png">
+        <img id="wooden-box" src="wood-02.jpg">
       </a-assets>
 
       <!-- camera in perspective: -->
       <!-- <a-entity id='cameraWrapper' position="5 3 3" rotation="-45 45 0"> -->
-      <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
+      <a-entity id='cameraWrapper' position="-1 0 0" rotation="0 -90 0">
       <!-- camera center: -->
         <a-camera></a-camera>
       </a-entity>
 
-      <a-entity id="room-light" light="type: point; intensity: 0.2; distance: 50; decay: 2" position="0 2 -3"></a-entity>
+      <!-- film noir intensity is 0.2 -->
+      <a-entity id="room-light" light="type: point; intensity: 1; distance: 50; decay: 2" position="0 2 -3"></a-entity>
 
       <a-plane src="#ground" position="0 0 0" rotation="-90 0 0" width="4" height="8" color="#7BC8A4"></a-plane>
 
       <a-entity id='wallsWrapper' position="0 2 0" rotation="0 0 0">
 
         <a-entity id='front-wall' position="0 0 -4" rotation="0 0 0">
-          <a-plane src="#wall" position="0 -1.25 0" width="4" height="2.5"></a-plane>
-          <a-plane src="#wall" position="0 1.25 0" width="4" height="0.5"></a-plane>
+          <!-- bottom  -->
+          <a-plane src="#wall" position="0 -1.25 0" width="4.1" height="2.5"></a-plane>
+          <!-- top -->
+          <a-plane src="#wall" position="0 1.5 0" width="4.1" height="1"></a-plane>
+          <!-- left -->
           <a-plane src="#wall" position="-1.5 1.25 0" width="1" height="2.5"></a-plane>
-          <a-plane src="#wall" position="1.5 1.25 0" width="1" height="2.5"></a-plane>
+          <!-- right -->
+          <a-plane src="#wall" position="1.75 1.25 0" width="0.5" height="2.5"></a-plane>
 
           <a-entity id='window' position="0 0 0" rotation="0 0 0">
             <a-entity id="window-light" position="0 1 -2"  rotation="-170 0 0">
@@ -38,10 +45,33 @@
           </a-entity>
         </a-entity>
 
-        <a-plane src="#wall" position="0 0 4" rotation="0 180 0" width="4" height="4"></a-plane>
         <a-plane src="#wall" position="-2 0 0" rotation="0 90 0" width="8" height="4"></a-plane>
-        <a-plane src="#wall" position="2 0 0" rotation="0 -90 0" width="8" height="4"></a-plane>
+
+        <a-entity id="right-wall" position="2 0 0" rotation="0 -90 0" >
+          <a-plane src="#wall" width="8" height="4"></a-plane>
+          <a-entity id="vive-table" position="0 -2 0">
+            <!-- top of table -->
+            <a-entity material="color: white; roughness: 1; metalness: 0" geometry="primitive: box; width: 1.2; height: 0.02; depth: 0.8" position="0 0.7 0.4">
+              <!-- feet of table -->
+              <a-entity material="color: white; roughness: 1; metalness: 0" geometry="primitive: box; width: 0.02; height: 0.75; depth: 0.06" position="0.58 -0.37 0.35"></a-entity>
+              <a-entity material="color: white; roughness: 1; metalness: 0" geometry="primitive: box; width: 0.02; height: 0.75; depth: 0.06" position="0.58 -0.37 -0.35"></a-entity>
+              <a-entity material="color: white; roughness: 1; metalness: 0" geometry="primitive: box; width: 0.02; height: 0.75; depth: 0.06" position="-0.58 -0.37 0.35"></a-entity>
+              <a-entity material="color: white; roughness: 1; metalness: 0" geometry="primitive: box; width: 0.02; height: 0.75; depth: 0.06" position="-0.58 -0.37 -0.35"></a-entity>
+
+            </a-entity>
+          </a-entity>
+        </a-entity>
+
         <a-plane src="#wall" position="0 2 0" rotation="90 0 0" width="4" height="8"></a-plane>
+
+        <a-entity id='back-wall' position="0 0 4" rotation="0 180 0">
+          <a-plane src="#wall" position="0 0 0" rotation="0 0 0" width="4" height="4"></a-plane>
+          <a-plane src="#door" position="0 -1 0" height="2.1" width="1"></a-plane>
+          <a-plane src="#door" position="0.6 -1 0" height="2.1" width="0.3"></a-plane>
+
+          <a-entity material="src: wood-02.jpg;" geometry="primitive: box; width: 1.2; height: 0.5; depth: 0.8" position="-1.2 -1.8 0.5"></a-entity>
+          <a-entity material="src: wood-02.jpg;" geometry="primitive: box; width: 1.2; height: 0.5; depth: 0.8" position="1.3 -1.8 0.5"></a-entity>
+        </a-entity>
       </a-entity>
 
 
