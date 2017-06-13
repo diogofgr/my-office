@@ -1,24 +1,55 @@
 <!doctype html>
 <html>
   <head>
-    <title>VR workshop position and color</title>
+    <title>The Lisbon Office</title>
     <script src="https://aframe.io/releases/0.5.0/aframe.js"></script>
   </head>
   <body>
     <a-scene>
+      <a-assets>
+        <img id="ground" src="ground.jpg">
+        <img id="wall" src="wall.png">
+      </a-assets>
+
+      <!-- camera in perspective: -->
+      <!-- <a-entity id='cameraWrapper' position="5 3 3" rotation="-45 45 0"> -->
+      <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
+      <!-- camera center: -->
+        <a-camera></a-camera>
+      </a-entity>
+
+      <a-entity id="room-light" light="type: point; intensity: 0.75; distance: 50; decay: 2"
+          position="0 2 0"></a-entity>
+
+      <a-plane src="#ground" position="0 0 0" rotation="-90 0 0" width="4" height="8" color="#7BC8A4"></a-plane>
+
+      <a-entity id='wallsWrapper' position="0 2 0" rotation="0 0 0">
+
+        <a-entity id='front-wall' position="0 0 -4" rotation="0 0 0">
+          <a-plane src="#wall" position="0 -1.25 0" width="4" height="2.5"></a-plane>
+          <a-plane src="#wall" position="0 1.25 0" width="4" height="0.5"></a-plane>
+          <a-plane src="#wall" position="-1.5 1.25 0" width="1" height="2.5"></a-plane>
+          <a-plane src="#wall" position="1.5 1.25 0" width="1" height="2.5"></a-plane>
+
+          <a-entity id='window' position="0 0 0" rotation="0 0 0">
+            <a-entity id="window-light" position="0 0 -2"  rotation="-170 0 0">
+              <a-entity light="type: spot; angle: 45; distance: 10" ></a-entity>
+              <!-- <a-entity light="type: point; color: white; intensity: 0.75; distance: 50; decay: 2" position="0 0 0"></a-entity> -->
+            </a-entity>
+          </a-entity>
+        </a-entity>
+
+        <a-plane src="#wall" position="0 0 4" rotation="0 180 0" width="4" height="4"></a-plane>
+        <a-plane src="#wall" position="-2 0 0" rotation="0 90 0" width="8" height="4"></a-plane>
+        <a-plane src="#wall" position="2 0 0" rotation="0 -90 0" width="8" height="4"></a-plane>
+        <a-plane src="#wall" position="0 2 0" rotation="90 0 0" width="4" height="8"></a-plane>
+      </a-entity>
+
+
+
       <a-box position="0 0 -5"></a-box>
       <a-box color="red" position="1.7 0 -5"></a-box>
-      <!-- Step 1 : Add another cube on the left with a black color -->
-      <!-- Step 2 : Change the white cube to a yellow color -->
-      <!-- Done? See what you did? If it doesn't look familar and local then you didn't really finish ;)
 
-            to appreciate in your VR headset click to the top right black arrow
-            open that new window in your Cardboard
-
-            Only see the white and red cube in your phone?
-                  Then you are loading the demo, make sure to load your OWN address (no tigikaw in it)
-            -->
-      <a-box color="blue" position="0 0 5"></a-box>
       <!-- Bonus Step : Can you see that cube? If not take a minute to wonder why -->
       <a-sky color="lightblue"></a-sky>
     </a-scene>
