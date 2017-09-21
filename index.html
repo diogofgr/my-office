@@ -12,6 +12,7 @@
         <img id="wall" src="wall.png">
         <img id="door" src="wood-01.png">
         <img id="wooden-box" src="wood-02.jpg">
+        <img id="8bit-space" src="8bit-space.jpg">
         <img id="sky" src="sunset-sky.jpg">
       </a-assets>
 
@@ -157,10 +158,30 @@
         </a-animation>
       </a-entity>
 
-      <!-- Bonus Step : Can you see that cube? If not take a minute to wonder why -->
+
+      <a-entity
+        id="portal"
+        position="-1.95 1 -0.2"
+        rotation="0 90 0"
+        scale="0.8 0.8 0.8">
+        <a-link
+          href="underworld.html"
+          title="NOT AN EXIT"
+          image="#8bit-space">
+        </a-link>
+        <a-animation
+          attribute="position"
+          dur="1000"
+          direction="alternate"
+          fill="forwards"
+          ease="ease-in-out"
+          to="-1.95 1.1 -0.2"
+          repeat="indefinite">
+        </a-animation>
+      </a-entity>
+
       <a-sky src="#sky" phi-start="150"></a-sky>
     </a-scene>
   </body>
 </html>
 
-<!-- want to cheat? Have a look at https://aframe.io/docs/primitives/a-cube.html -->

@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The Lisbon Office</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.js"></script>
+    <script src="color-manager.js"></script>
+  </head>
+  <body>
+    <a-scene playspaces>
+      <a-assets>
+        <img id="my-office" src="my-office.JPG">
+      </a-assets>
+
+      <!-- camera in perspective: -->
+      <!-- <a-entity id='cameraWrapper' position="5 3 3" rotation="-45 45 0"> -->
+      <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
+      <!-- camera center: -->
+        <a-camera>
+            <a-cursor></a-cursor>
+            <a-entity
+              id="flashlight"
+              light="penumbra:0.53;
+                    intensity:0.94;
+                    angle:25;
+                    type:spot;
+                    distance:1000;
+                    decay:2">
+            </a-entity>
+        </a-camera>
+      </a-entity>
+
+      <!-- film noir intensity is 0.2 -->
+
+      <a-entity
+        id="amb-light"
+        light="type: ambient;
+              intensity: 0.1;">
+      </a-entity>
+
+      <a-entity
+        id="portal"
+        position="0 1 3"
+        rotation="0 0 0"
+        scale="0.5 0.5 0.5">
+        <a-link
+          href="index.html"
+          title="The Lisbon VR"
+          image="#my-office">
+        </a-link>
+        <a-animation
+          attribute="position"
+          dur="1000"
+          direction="alternate"
+          fill="forwards"
+          ease="ease-in-out"
+          to="0 1.1 3"
+          repeat="indefinite">
+        </a-animation>
+      </a-entity>
+
+      <a-entity
+        id="main-playspace">
+
+        <a-sphere
+          position="0 -1 0"
+          radius="2"
+          color="crimson"
+          material="roughness: 1; metalness: 0"
+          shadow="receive: true">
+        </a-sphere>
+
+        <a-entity id="small-torus" position="0 0 0">
+          <a-torus-knot
+            color="#B84A39"
+            arc="180"
+            p="14"
+            q="15"
+            radius="40"
+            radius-tubular="0.5">
+          </a-torus-knot>
+          <a-animation
+            attribute="rotation"
+            dur="100000"
+            direction="normal"
+            fill="forwards"
+            ease="linear"
+            to="360 360 0"
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+
+        <a-entity id="big-torus"
+                  position="0 0 0"
+                  rotation="0 -65 0">
+          <a-torus-knot
+            color="purple"
+            arc="180"
+            p="14"
+            q="15"
+            radius="150"
+            radius-tubular="2">
+          </a-torus-knot>
+          <a-animation
+            attribute="rotation"
+            dur="100000"
+            direction="normal"
+            fill="forwards"
+            ease="linear"
+            to="0 360 360"
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+      </a-entity>
+
+      <!-- other playspaces TODO: generate these programmatically-->
+      <a-entity
+        id="other-playspace-01"
+        position="0 0 -500">
+
+        <a-sphere
+          position="0 -1 0"
+          radius="2"
+          color="crimson"
+          material="roughness: 1; metalness: 0"
+          shadow="receive: true">
+        </a-sphere>
+
+        <a-entity id="small-torus" position="0 0 0">
+          <a-torus-knot
+            color="#B84A39"
+            arc="180"
+            p="14"
+            q="15"
+            radius="40"
+            radius-tubular="0.5">
+          </a-torus-knot>
+          <a-animation
+            attribute="rotation"
+            dur="100000"
+            direction="normal"
+            fill="forwards"
+            ease="linear"
+            to="360 360 0"
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+
+        <a-entity id="big-torus"
+                  position="0 0 0"
+                  rotation="0 -45 0">
+          <a-torus-knot
+            color="purple"
+            arc="180"
+            p="14"
+            q="15"
+            radius="150"
+            radius-tubular="2">
+          </a-torus-knot>
+          <a-animation
+            attribute="rotation"
+            dur="100000"
+            direction="normal"
+            fill="forwards"
+            ease="linear"
+            to="0 360 360"
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+      </a-entity>
+
+      <a-entity
+        id="other-playspace-02"
+        position="500 0 0">
+
+        <a-sphere
+          position="0 -1 0"
+          radius="2"
+          color="crimson"
+          material="roughness: 1; metalness: 0"
+          shadow="receive: true">
+        </a-sphere>
+
+        <a-entity id="small-torus" position="0 0 0">
+          <a-torus-knot
+            color="#B84A39"
+            arc="180"
+            p="14"
+            q="15"
+            radius="40"
+            radius-tubular="0.5">
+          </a-torus-knot>
+          <a-animation
+            attribute="rotation"
+            dur="100000"
+            direction="normal"
+            fill="forwards"
+            ease="linear"
+            to="360 360 0"
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+
+        <a-entity id="big-torus"
+                  position="0 0 0"
+                  rotation="0 -45 0">
+          <a-torus-knot
+            color="purple"
+            arc="180"
+            p="14"
+            q="15"
+            radius="150"
+            radius-tubular="2">
+          </a-torus-knot>
+          <a-animation
+            attribute="rotation"
+            dur="100000"
+            direction="normal"
+            fill="forwards"
+            ease="linear"
+            to="0 360 360"
+            repeat="indefinite">
+          </a-animation>
+        </a-entity>
+      </a-entity>
+
+
+      <a-sky color="black" phi-start="150"></a-sky>
+    </a-scene>
+  </body>
+</html>
+
