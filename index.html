@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>The Lisbon Office</title>
-    <script src="https://aframe.io/releases/0.5.0/aframe.js"></script>
+    <script src="https://aframe.io/releases/0.7.0/aframe.js"></script>
+    <script src="color-manager.js"></script>
   </head>
   <body>
     <a-scene>
@@ -18,7 +19,9 @@
       <!-- <a-entity id='cameraWrapper' position="5 3 3" rotation="-45 45 0"> -->
       <a-entity id='cameraWrapper' position="0 0 0" rotation="0 0 0">
       <!-- camera center: -->
-        <a-camera></a-camera>
+        <a-camera>
+            <a-cursor></a-cursor>
+        </a-camera>
       </a-entity>
 
       <!-- film noir intensity is 0.2 -->
@@ -87,10 +90,48 @@
         </a-entity>
       </a-entity>
 
+      <a-entity position="0 1 -3">
+        <a-box
+          color-manager
+          color="black"
+          rotation="45 45 45">
+        </a-box>
+        <a-animation
+          attribute="rotation"
+          dur="10000"
+          direction="normal"
+          fill="forwards"
+          ease="linear"
+          to="0 360 0"
+          repeat="indefinite">
+        </a-animation>
 
+      </a-entity>
 
-      <a-box position="0 0 -5"></a-box>
-      <a-box color="red" position="1.7 0 -5"></a-box>
+      <a-entity position="0 1 -1">
+        <a-sphere
+          btn-change-color
+          color="red"
+          radius="0.08">
+        </a-sphere>
+        <a-cone
+          color="white"
+          radius-bottom="0.1"
+          radius-top="0.1"
+          position="0 -1 0"
+          height="2">
+        </a-cone>
+        <a-animation
+          attribute="scale"
+          dur="200"
+          direction="alternate"
+          fill="forwards"
+          ease="linear"
+          to="1 0.8 1"
+          repeat="1"
+          begin="squeezeanimation">
+        </a-animation>
+      </a-entity>
 
       <!-- Bonus Step : Can you see that cube? If not take a minute to wonder why -->
       <a-sky src="#sky" phi-start="150"></a-sky>
