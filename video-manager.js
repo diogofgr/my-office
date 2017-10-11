@@ -10,10 +10,18 @@ AFRAME.registerComponent('video-manager', {
     asset.setAttribute('src', nextVideo(currentVideo));
 
     function nextVideo(currentVideo) {
-    const videos = [ '.gitignore/london-tower-bridge.mp4', '.gitignore/ayutthaya.mp4', '.gitignore/city-waterfall.mp4']
+      const london = "http://res.cloudinary.com/diogofgr/video/upload/v1507736496/london-tower-bridge_cnvhas.mp4";
+      const thailand = "http://res.cloudinary.com/diogofgr/video/upload/v1507736492/ayutthaya_nulxnj.mp4";
+      const cave = "http://res.cloudinary.com/diogofgr/video/upload/v1507736510/cave-waterfall_mwp4yw.mp4";
+
+      const videos = [ london, thailand, cave];
 
       var currentIndex = videos.indexOf(currentVideo);
-      return videos[currentIndex + 1];
+      if (currentIndex == videos.length - 1){
+        return videos[0];
+      } else {
+        return videos[currentIndex + 1];
+      }
     }
   }
 });
