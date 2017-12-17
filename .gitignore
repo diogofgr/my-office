@@ -1,2 +1,3 @@
 # Ignore the 360 videos folder:
 videos360/
+*.mp4
