@@ -33,13 +33,23 @@
         <a-cursor></a-cursor>
       </a-camera>
 
-      <a-entity
-        btn-change-video
-        position="-2.5 2 -3"
-        rotation="0 20 0"
-        geometry="primitive: plane; height: 0.5; width: 1"
-        material="color: white"
-        text="width: 4; value: Next Video; color: black; align: center">
+      <!-- Video menu -->
+      <a-entity position="-2.5 2 -3">
+        <a-entity
+          btn-change-video
+          rotation="0 20 0"
+          geometry="primitive: plane; height: 0.5; width: 1"
+          material="color: white"
+          text="width: 4; value: Next Video >; color: black; align: center">
+        </a-entity>
+        <a-entity
+          onClick="window.location.href='index.html'"
+          position="0 -0.6 0"
+          rotation="0 20 0"
+          geometry="primitive: plane; height: 0.5; width: 0.8"
+          material="color: white"
+          text="width: 4; value: Home; color: black; align: center">
+        </a-entity>
       </a-entity>
 
       <!-- Wait for the video to load. -->
