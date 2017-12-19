@@ -9,11 +9,13 @@
     <script src="scripts/play-on-window-click.js"></script>
     <script src="scripts/play-on-vrdisplayactivate-or-enter-vr.js"></script>
     <script src="scripts/hide-once-playing.js"></script>
+    <script src="scripts/video-manager.js"></script>
 
     <!-- Specify our scene. -->
     <a-scene>
       <!-- The original example also has this 180 degree rotation, to appear to be going forward. -->
       <a-videosphere rotation="0 -90 0" src="#video"
+                     video-manager
                      play-on-window-click
                      play-on-vrdisplayactivate-or-enter-vr>
       </a-videosphere>
@@ -28,7 +30,17 @@
                 value:Click window to make the video play, if needed."
                 hide-once-playing="#video">
         </a-entity>
+        <a-cursor></a-cursor>
       </a-camera>
+
+      <a-entity
+        btn-change-video
+        position="-2.5 2 -3"
+        rotation="0 20 0"
+        geometry="primitive: plane; height: 0.5; width: 1"
+        material="color: white"
+        text="width: 4; value: Next Video; color: black; align: center">
+      </a-entity>
 
       <!-- Wait for the video to load. -->
       <a-assets>
